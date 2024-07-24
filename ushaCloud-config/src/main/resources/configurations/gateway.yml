@@ -1,0 +1,26 @@
+eureka:
+  client:
+    register-with-eureka: false
+server:
+  port: 8222
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: subscribers
+          uri: http://localhost:9091
+          predicates:
+            - Path=/customers/**
+        - id: Platformss
+          uri: http://localhost:9092
+          predicates:
+            - Path=/platforms/**
+        - id: Bank
+          uri: http://localhost:9093
+          predicates:
+            - Path=/accounts/**

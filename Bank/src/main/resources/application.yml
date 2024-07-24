@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: Bank
+  config:
+    import: optional:configserver:http://localhost:9999
